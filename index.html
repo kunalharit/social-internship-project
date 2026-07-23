@@ -1,24 +1,101 @@
-<!-- Naya Structured Store Info Section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Point Stationery - Live Inventory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>📘 Student Point</h1>
+            <p>Stationery & Print Services</p>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </header>
+
+    <div class="container">
+        <div class="search-container">
+            <h2>Check Item Availability</h2>
+            <p style="margin-bottom: 1rem; opacity: 0.8;">Search before you visit the shop!</p>
+            <input type="text" id="searchInput" placeholder="Search for Practical files, pens, printing..." onkeyup="filterItems()">
+        </div>
+
+        <div class="grid" id="itemGrid">
+            <!-- Items Same Rahenge -->
+            <div class="card">
+                <h3>Class 12th Practical Files</h3>
+                <p>Physics, Chemistry, Biology</p>
+                <div class="price">₹120 / piece</div>
+                <div class="status in-stock">In Stock</div>
+            </div>
+            <div class="card">
+                <h3>A4 Paper Ream</h3>
+                <p>JK Copier (500 Sheets)</p>
+                <div class="price">₹250 / ream</div>
+                <div class="status in-stock">In Stock</div>
+            </div>
+            <div class="card">
+                <h3>Scientific Calculator</h3>
+                <p>Casio fx-82MS / fx-991EX</p>
+                <div class="price">Check Price</div>
+                <div class="status out-stock">Out of Stock</div>
+            </div>
+            <div class="card">
+                <h3>Geometry Box</h3>
+                <p>Mathematical Set</p>
+                <div class="price">₹100 / box</div>
+                <div class="status in-stock">In Stock</div>
+            </div>
+        </div>
+
+        <!-- Location, Call & WhatsApp Section -->
         <div class="store-info">
             <div class="info-card">
-                <h3>📍 Store Location</h3>
+                <h3>📍 Store Location & Contact</h3>
                 <p><strong>Student Point Stationery</strong></p>
-                <p>Opposite Modern Public School<br>
-                Lalitpur, Uttar Pradesh</p>
-                <a href="tel:+910000000000" class="call-btn">📞 Call Now</a>
+                <!-- GOOGLE MAPS LINK -->
+                <a href="https://www.google.com/maps/search/?api=1&query=Modern+Public+School,+Lalitpur,+Uttar+Pradesh" target="_blank" class="location-link">
+                    Opposite Modern Public School<br>Lalitpur, Uttar Pradesh 🌍 (Open in Maps)
+                </a>
+                
+                <!-- CALL & WHATSAPP BUTTONS -->
+                <div class="contact-buttons">
+                    <a href="tel:+910000000000" class="btn call-btn">📞 Call Now</a>
+                    <a href="https://wa.me/910000000000?text=Hi,%20I%20want%20to%20inquire%20about%20stationery." target="_blank" class="btn whatsapp-btn">💬 WhatsApp</a>
+                </div>
             </div>
             
             <div class="info-card">
                 <h3>⏰ Business Hours</h3>
                 <ul class="timing-list">
-                    <li><span>Monday - Friday</span> <span>09:00 AM - 08:30 PM</span></li>
+                    <li><span>Mon - Fri</span> <span>09:00 AM - 08:30 PM</span></li>
                     <li><span>Saturday</span> <span>09:00 AM - 09:00 PM</span></li>
                     <li><span>Sunday</span> <span class="closed">Closed</span></li>
                 </ul>
             </div>
         </div>
-    </div> <!-- Yeh Container ka closing div hai -->
+
+        <!-- GOOGLE SHEET INQUIRY FORM -->
+        <div class="form-container">
+            <h3>📝 Can't find an item? Request it here!</h3>
+            <p>Tumhari inquiry seedha dukan wale bhaiya ki Google Sheet mein jayegi.</p>
+            <form name="google-sheet-form" id="sheetForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="item" placeholder="Item you need (e.g., Parker Pen)" required>
+                <input type="tel" name="phone" placeholder="Your Phone/WhatsApp Number" required>
+                <button type="submit" class="submit-btn" id="submitBtn">Send Inquiry</button>
+            </form>
+            <p id="formMsg" style="display:none; color: var(--success); font-weight:bold; margin-top: 15px;">✅ Message Sent Successfully!</p>
+        </div>
+    </div>
 
     <footer>
         <p>© 2026 Student Point Stationery. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
