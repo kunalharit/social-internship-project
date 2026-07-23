@@ -1,15 +1,4 @@
-// Dark Mode Logic
-function toggleTheme() {
-    document.body.classList.toggle('dark-theme');
-    const btn = document.getElementById('toggleBtn');
-    if (document.body.classList.contains('dark-theme')) {
-        btn.textContent = '☀️ Light Mode';
-    } else {
-        btn.textContent = '🌙 Dark Mode';
-    }
-}
-
-// Live Search Filtering Logic
+// Live Search Logic
 function filterItems() {
     let input = document.getElementById('searchInput').value.toLowerCase();
     let cards = document.getElementsByClassName('card');
@@ -18,11 +7,32 @@ function filterItems() {
         let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
         let desc = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
         
-        // If the search matches the title or description, show it, otherwise hide it.
         if (title.includes(input) || desc.includes(input)) {
             cards[i].style.display = "";
         } else {
             cards[i].style.display = "none";
         }
     }
+}
+
+// Dark Mode Logic
+function toggleTheme() {
+    let body = document.body;
+    let btn = document.querySelector('.theme-toggle');
+    
+    if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        btn.innerText = '🌙 Dark Mode';
+        localStorage.setItem('theme', 'light');
+    } else {
+        body.setAttribute('data-theme', 'dark');
+        btn.innerText = '☀️ Light Mode';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// Keep theme consistent on reload
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.setAttribute('data-theme', 'dark');
+    document.querySelector('.theme-toggle').innerText = '☀️ Light Mode';
 }

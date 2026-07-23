@@ -3,65 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internship Project Setup</title>
-    <!-- CSS Link -->
+    <title>Student Point Stationery - Live Inventory</title>
+    <!-- Link to CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <button class="theme-toggle" id="toggleBtn" onclick="toggleTheme()">🌙 Dark Mode</button>
-        <h1 id="main-title">Placeholder Business Name</h1>
-        <p id="main-tagline">This is a tagline. You can replace this later.</p>
+        <div class="logo">
+            <h1>📘 Student Point</h1>
+            <p>Stationery & Print Services</p>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
     </header>
 
     <div class="container">
-        <!-- Live Search Bar -->
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search for items or services..." onkeyup="filterItems()">
+            <h2>Check Item Availability</h2>
+            <p style="margin-bottom: 1rem; opacity: 0.8;">Search before you visit the shop!</p>
+            <input type="text" id="searchInput" placeholder="Search for Practical files, pens, printing..." onkeyup="filterItems()">
         </div>
 
-        <!-- Cards Grid -->
         <div class="grid" id="itemGrid">
-            
-            <!-- Card 1 -->
             <div class="card">
-                <h3>Service/Item 1</h3>
-                <p>Description of the first item goes here.</p>
-                <span class="status-badge">Available</span>
+                <h3>Class 12th Practical Files</h3>
+                <p>Physics, Chemistry, Biology (Hardbound)</p>
+                <div class="price">₹120 / piece</div>
+                <div class="status in-stock">In Stock</div>
             </div>
-            
-            <!-- Card 2 -->
             <div class="card">
-                <h3>Service/Item 2</h3>
-                <p>Description of the second item goes here.</p>
-                <span class="status-badge out-of-stock">Unavailable</span>
+                <h3>A4 Paper Ream</h3>
+                <p>JK Copier (500 Sheets, 75 GSM)</p>
+                <div class="price">₹250 / ream</div>
+                <div class="status in-stock">In Stock</div>
             </div>
-            
-            <!-- Card 3 -->
             <div class="card">
-                <h3>Service/Item 3</h3>
-                <p>Description of the third item goes here.</p>
-                <span class="status-badge">Available</span>
+                <h3>Scientific Calculator</h3>
+                <p>Casio fx-82MS / fx-991EX</p>
+                <div class="price">Check Price</div>
+                <div class="status out-stock">Out of Stock</div>
             </div>
-            
-            <!-- Card 4 -->
             <div class="card">
-                <h3>Service/Item 4</h3>
-                <p>Description of the fourth item goes here.</p>
-                <span class="status-badge">Available</span>
+                <h3>Classmate Notebooks</h3>
+                <p>Ruled/Unruled, 140-400 pages</p>
+                <div class="price">Starting ₹50</div>
+                <div class="status in-stock">In Stock</div>
             </div>
-
+            <div class="card">
+                <h3>Geometry Box</h3>
+                <p>Camel / Faber-Castell Mathematical Set</p>
+                <div class="price">₹100 / box</div>
+                <div class="status in-stock">In Stock</div>
+            </div>
+            <div class="card">
+                <h3>Project Chart Papers</h3>
+                <p>Multiple Colors, Thick Ivory Sheets</p>
+                <div class="price">₹10 / sheet</div>
+                <div class="status in-stock">In Stock</div>
+            </div>
+             <div class="card">
+                <h3>A0 / Blueprint Printing</h3>
+                <p>Large format printing for Engineering/Arch students</p>
+                <div class="price">₹150 / page</div>
+                <div class="status in-stock">Available</div>
+            </div>
+             <div class="card">
+                <h3>Spiral Binding</h3>
+                <p>Up to 300 pages with plastic covers</p>
+                <div class="price">₹40 - ₹60</div>
+                <div class="status in-stock">Available</div>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>Created for SDG Goal 9: Digital Community Access.</p>
-        <!-- Add real number later where the 0s are -->
-        <a href="https://wa.me/910000000000" class="contact-btn" target="_blank">💬 Contact via WhatsApp</a>
+        <h3>Student Point Stationery</h3>
+        <p>Opposite [School Name], Meerut, Uttar Pradesh</p>
+        <p>Hours: 9:00 AM - 8:00 PM (Mon-Sat)</p>
+        <a href="tel:+910000000000" class="call-btn">📞 Call Shop</a>
     </footer>
 
-    <!-- JS Link -->
+    <!-- Link to JS file -->
     <script src="script.js"></script>
 </body>
 </html>
