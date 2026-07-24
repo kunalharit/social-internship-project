@@ -3,77 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Point Stationery</title>
-    <!-- CSS File Link -->
+    <title>Student Point Stationery - Live Inventory</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Dark Mode Button -->
-    <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
 
-    <!-- 1. Hero Banner -->
-    <div class="hero-banner">
-        <div class="hero-badge">Est. 2026 • Top Quality Supplies</div>
-        <h1>Student Point Stationery</h1>
-        <p>Everything you need to focus, stay disciplined, and succeed.</p>
-    </div>
+    <header>
+        <div class="logo">
+            <h1>📘 Student Point</h1>
+            <p>Stationery & Print Services</p>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </header>
 
-    <!-- 2. Announcement Bar -->
-    <div class="announcement-bar">
-        <div class="announcement-icon">🚀 Updates:</div>
-        <div class="marquee-text">
-            New Practical files in stock! • Special discount on project components • Grab your fresh planners today!
+    <div class="container">
+        <!-- Search Section -->
+        <div class="search-container">
+            <h2>Check Item Availability</h2>
+            <p style="margin-bottom: 1rem; opacity: 0.8;">Search before you visit the shop!</p>
+            <input type="text" id="searchInput" placeholder="Search for Practical files, pens, printing..." onkeyup="filterItems()">
+        </div>
+
+        <!-- Inventory Grid (Will be filled by Google Sheets CSV) -->
+        <div class="grid" id="itemGrid">
+            <p style="text-align: center; width: 100%;">Loading inventory from Google Sheets...</p>
+        </div>
+
+        <!-- Inquiry Form -->
+        <div class="form-container">
+            <h2>Request an Item</h2>
+            <p>Can't find what you need? Let us know!</p>
+            <form name="google-sheet-form" id="contactForm">
+                <input type="text" name="name" id="name" placeholder="Your Name" required>
+                <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" required>
+                <input type="text" name="item" id="item" placeholder="Item Needed" required>
+                <button type="submit" id="submitBtn">Send Inquiry</button>
+                <p id="formMsg" style="display:none; color: var(--success); font-weight: bold; margin-top: 10px;">Message sent successfully!</p>
+            </form>
         </div>
     </div>
 
-    <!-- 3. Category Pills -->
-    <!-- Yahan value='' ke andar wo exact word daalo jo Sheet mein ho -->
-<div class="category-container">
-    <!-- Jaise agar sheet mein NCERT likha hai, toh 'Books' ki jagah 'NCERT' search karwao -->
-    <span class="category-pill" onclick="document.getElementById('searchInput').value='NCERT'; filterItems();">📚 Books</span>
-    
-    <!-- Agar sheet mein Drafter hai, toh 'Drafter' search karwao -->
-    <span class="category-pill" onclick="document.getElementById('searchInput').value='Drafter'; filterItems();">📐 Engineering Tools</span>
-    
-    <!-- Agar sheet mein Colors hai -->
-    <span class="category-pill" onclick="document.getElementById('searchInput').value='Colors'; filterItems();">🎨 Art & Craft</span>
-    
-    <!-- Yahan dhyan do ki sheet mein 'File' likha hai ya 'Files' -->
-    <span class="category-pill" onclick="document.getElementById('searchInput').value='File'; filterItems();">📝 Practical Files</span>
-    
-    <span class="category-pill" onclick="document.getElementById('searchInput').value=''; filterItems();">🔄 Show All</span>
-</div>
+    <footer>
+        <h3>Student Point Stationery</h3>
+        <p>Opposite School, Meerut, Uttar Pradesh</p>
+        <p>Hours: 9:00 AM - 8:00 PM (Mon-Sat)</p>
+    </footer>
 
-    <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search for items..." onkeyup="filterItems()">
-    </div>
-
-    <!-- Inventory Grid -->
-    <div class="grid" id="itemGrid">
-        <p style="text-align:center; width:100%;">Loading inventory...</p>
-    </div>
-
-    <!-- Inquiry Form -->
-    <div class="form-container">
-        <h2>Send an Inquiry</h2>
-        <form name="google-sheet-form" id="contactForm">
-    <!-- Yahan name="name" hona zaroori hai -->
-    <input type="text" name="name" id="name" placeholder="Your Name" required>
-    
-    <!-- Yahan name="phone" hona zaroori hai -->
-    <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" required>
-    
-    <!-- Yahan name="item" hona zaroori hai -->
-    <input type="text" name="item" id="item" placeholder="Item Needed" required>
-    
-    <button type="submit" id="submitBtn">Send Inquiry</button>
-    <p id="formMsg" style="display:none; color: green;">Message sent successfully!</p>
-</form>
-        <p id="formMsg" style="display:none; color: #10b981; text-align: center; margin-top: 15px; font-weight: bold;">Message Sent Successfully!</p>
-    </div>
-
-    <!-- JavaScript File Link -->
     <script src="script.js"></script>
 </body>
 </html>
