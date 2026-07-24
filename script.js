@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', fetchInventory);
 
 function fetchInventory() {
     const itemGrid = document.getElementById('itemGrid');
+    const loader = document.getElementById('loader');
     
-    // 👇 YAHAN APNI GOOGLE SHEET KI 'PUBLISH TO WEB (CSV)' WALI LINK PASTE KARO 👇
     const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRz7tFf-W9EcRsC8UcLhqWQw8u6k4Y5FqWV8Il6WD2J9vf1Q2ITR2Zx2CXsmJrxIoFaJkOrDD1BLWrf/pub?output=csv'; 
 
     fetch(csvUrl) 
@@ -50,20 +50,23 @@ function fetchInventory() {
         .then(data => {
             itemGrid.innerHTML = ''; // Loading text hata do
             
-            // CSV ko rows mein todna
             const rows = data.trim().split('\n');
             
-            // Pehli row (Headings) ko chhod kar loop chalayenge (i = 1 se)
             for (let i = 1; i < rows.length; i++) {
+                // Agar row poori khali hai, toh skip karo
+                if (!rows[i] || rows[i].trim() === '') continue;
+
                 const cols = rows[i].split(','); 
                 
+                // YEH HAI FIX: Agar item ka naam khali hai, toh card mat banao
+                if (!cols[0] || cols[0].trim() === "") continue;
+
                 if (cols.length >= 4) {
                     let title = cols[0].trim();
                     let desc = cols[1].trim();
                     let price = cols[2].trim();
-                    let status = cols[3].trim().toUpperCase(); // TRUE ya FALSE aayega yahan
+                    let status = cols[3].trim().toUpperCase(); 
                     
-                    // Naya Checkbox Logic
                     let isChecked = (status === 'TRUE');
                     let statusText = isChecked ? 'In Stock' : 'Out of Stock';
                     let statusClass = isChecked ? 'in-stock' : 'out-stock';
@@ -82,7 +85,7 @@ function fetchInventory() {
         })
         .catch(error => {
             console.error('Error fetching CSV:', error);
-            itemGrid.innerHTML = '<p style="color:red; text-align:center; width:100%;">Error loading items. Please check the CSV URL connection.</p>';
+            if(loader) loader.innerText = 'Error loading items! Please check connection.';
         });
 }
 

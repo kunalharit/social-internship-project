@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Point Stationery</title>
-    <!-- CSS File Link -->
-    <link rel="stylesheet" href="style.css">
+    <!-- CSS File Link - ?v=2 lagaya taaki cache issue na ho -->
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
     <!-- Dark Mode Button -->
@@ -27,22 +27,13 @@
     </div>
 
     <!-- 3. Category Pills -->
-    <!-- Yahan value='' ke andar wo exact word daalo jo Sheet mein ho -->
-<div class="category-container">
-    <!-- Jaise agar sheet mein NCERT likha hai, toh 'Books' ki jagah 'NCERT' search karwao -->
-    <span class="category-pill" onclick="document.getElementById('searchInput').value='NCERT'; filterItems();">📚 Books</span>
-    
-    <!-- Agar sheet mein Drafter hai, toh 'Drafter' search karwao -->
-    <span class="category-pill" onclick="document.getElementById('searchInput').value='Drafter'; filterItems();">📐 Engineering Tools</span>
-    
-    <!-- Agar sheet mein Colors hai -->
-    <span class="category-pill" onclick="document.getElementById('searchInput').value='Colors'; filterItems();">🎨 Art & Craft</span>
-    
-    <!-- Yahan dhyan do ki sheet mein 'File' likha hai ya 'Files' -->
-    <span class="category-pill" onclick="document.getElementById('searchInput').value='File'; filterItems();">📝 Practical Files</span>
-    
-    <span class="category-pill" onclick="document.getElementById('searchInput').value=''; filterItems();">🔄 Show All</span>
-</div>
+    <div class="category-container">
+        <span class="category-pill" onclick="document.getElementById('searchInput').value='NCERT'; filterItems();">📚 Books</span>
+        <span class="category-pill" onclick="document.getElementById('searchInput').value='Engineering Tools'; filterItems();">📐 Engineering Tools</span>
+        <span class="category-pill" onclick="document.getElementById('searchInput').value='Colors'; filterItems();">🎨 Art & Craft</span>
+        <span class="category-pill" onclick="document.getElementById('searchInput').value='File'; filterItems();">📝 Practical Files</span>
+        <span class="category-pill" onclick="document.getElementById('searchInput').value=''; filterItems();">🔄 Show All</span>
+    </div>
 
     <!-- Search Bar -->
     <div class="search-container">
@@ -51,7 +42,8 @@
 
     <!-- Inventory Grid -->
     <div class="grid" id="itemGrid">
-        <p style="text-align:center; width:100%;">Loading inventory...</p>
+        <!-- Yeh loader data aane tak ghoomega/dikhega -->
+        <h3 id="loader" style="text-align:center; width:100%; color:#007bff; padding: 40px;">⏳ Loading Inventory from Sheet...</h3>
     </div>
 
     <!-- Inquiry Form -->
@@ -66,7 +58,7 @@
         <p id="formMsg" style="display:none; color: #10b981; text-align: center; margin-top: 15px; font-weight: bold;">Message Sent Successfully!</p>
     </div>
 
-    <!-- JavaScript File Link -->
-    <script src="script.js"></script>
+    <!-- JavaScript File Link - ?v=2 lagaya -->
+    <script src="script.js?v=2"></script>
 </body>
 </html>
