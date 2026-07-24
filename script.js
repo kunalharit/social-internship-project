@@ -43,7 +43,7 @@ function fetchInventory() {
     const itemGrid = document.getElementById('itemGrid');
     
     // 👇 YAHAN APNI GOOGLE SHEET KI 'PUBLISH TO WEB (CSV)' WALI LINK PASTE KARO 👇
-    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLyL3cwroKyCRh2okOdH0gdvBW7DjhfxI8o0_tEgwfar3N9lf_g0ggzGCnJsB4WgWsuWq-C888GqTJ/pub?output=csv'; 
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRz7tFf-W9EcRsC8UcLhqWQw8u6k4Y5FqWV8Il6WD2J9vf1Q2ITR2Zx2CXsmJrxIoFaJkOrDD1BLWrf/pub?output=csv'; 
 
     fetch(csvUrl) 
         .then(response => response.text())

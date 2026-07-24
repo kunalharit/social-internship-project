@@ -27,13 +27,22 @@
     </div>
 
     <!-- 3. Category Pills -->
-    <div class="category-container">
-        <span class="category-pill" onclick="document.getElementById('searchInput').value='Books'; filterItems();">📚 Books</span>
-        <span class="category-pill" onclick="document.getElementById('searchInput').value='Engineering'; filterItems();">📐 Engineering Tools</span>
-        <span class="category-pill" onclick="document.getElementById('searchInput').value='Art'; filterItems();">🎨 Art & Craft</span>
-        <span class="category-pill" onclick="document.getElementById('searchInput').value='Files'; filterItems();">📝 Practical Files</span>
-        <span class="category-pill" onclick="document.getElementById('searchInput').value=''; filterItems();">🔄 Show All</span>
-    </div>
+    <!-- Yahan value='' ke andar wo exact word daalo jo Sheet mein ho -->
+<div class="category-container">
+    <!-- Jaise agar sheet mein NCERT likha hai, toh 'Books' ki jagah 'NCERT' search karwao -->
+    <span class="category-pill" onclick="document.getElementById('searchInput').value='NCERT'; filterItems();">📚 Books</span>
+    
+    <!-- Agar sheet mein Drafter hai, toh 'Drafter' search karwao -->
+    <span class="category-pill" onclick="document.getElementById('searchInput').value='Drafter'; filterItems();">📐 Engineering Tools</span>
+    
+    <!-- Agar sheet mein Colors hai -->
+    <span class="category-pill" onclick="document.getElementById('searchInput').value='Colors'; filterItems();">🎨 Art & Craft</span>
+    
+    <!-- Yahan dhyan do ki sheet mein 'File' likha hai ya 'Files' -->
+    <span class="category-pill" onclick="document.getElementById('searchInput').value='File'; filterItems();">📝 Practical Files</span>
+    
+    <span class="category-pill" onclick="document.getElementById('searchInput').value=''; filterItems();">🔄 Show All</span>
+</div>
 
     <!-- Search Bar -->
     <div class="search-container">
