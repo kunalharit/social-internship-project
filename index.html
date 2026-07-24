@@ -57,12 +57,19 @@
     <!-- Inquiry Form -->
     <div class="form-container">
         <h2>Send an Inquiry</h2>
-        <form name="google-sheet-form" id="inquiryForm">
-            <input type="text" name="Name" placeholder="Your Name" required>
-            <input type="text" name="Phone" placeholder="Your Phone Number" required>
-            <textarea name="Message" placeholder="What do you need?" rows="4" required></textarea>
-            <button type="submit" id="submitBtn">Send Inquiry</button>
-        </form>
+        <form name="google-sheet-form" id="contactForm">
+    <!-- Yahan name="name" hona zaroori hai -->
+    <input type="text" name="name" id="name" placeholder="Your Name" required>
+    
+    <!-- Yahan name="phone" hona zaroori hai -->
+    <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" required>
+    
+    <!-- Yahan name="item" hona zaroori hai -->
+    <input type="text" name="item" id="item" placeholder="Item Needed" required>
+    
+    <button type="submit" id="submitBtn">Send Inquiry</button>
+    <p id="formMsg" style="display:none; color: green;">Message sent successfully!</p>
+</form>
         <p id="formMsg" style="display:none; color: #10b981; text-align: center; margin-top: 15px; font-weight: bold;">Message Sent Successfully!</p>
     </div>
 
