@@ -261,3 +261,112 @@ body {
 .form-container button:hover {
     background-color: #2563eb;
 }
+/* Contact & Store Info Styles */
+.contact-info-container {
+    background-color: var(--card-bg, #ffffff);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.info-details p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: var(--text-color, #333);
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Agar screen choti ho toh buttons neeche aa jayenge */
+}
+
+.action-btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Button Specific Colors */
+.whatsapp-btn {
+    background-color: #25D366;
+}
+
+.call-btn {
+    background-color: #007bff;
+}
+
+.location-btn {
+    background-color: #EA4335;
+}
+
+/* Dark Mode Support for Contact Box */
+[data-theme="dark"] .contact-info-container {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .info-details p {
+    color: #e0e0e0;
+}
+/* =========================================
+   DARK MODE CSS COLORS (Paste at bottom)
+========================================= */
+
+/* Body background and text color */
+[data-theme="dark"] {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Cards and Form container backgrounds */
+[data-theme="dark"] .card,
+[data-theme="dark"] .form-container,
+[data-theme="dark"] .contact-info-container,
+[data-theme="dark"] .category-container {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Headings color */
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3 {
+    color: #ffffff !important;
+}
+
+/* Input Fields and Textarea in dark mode */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+    border: 1px solid #555555 !important;
+}
+
+/* Placeholder text color inside inputs */
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #aaaaaa !important;
+}
+
+/* Dark mode for loading text */
+[data-theme="dark"] #loader {
+    color: #66b2ff !important;
+}
