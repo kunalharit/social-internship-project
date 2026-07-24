@@ -47,16 +47,23 @@
     </div>
 
     <!-- Inquiry Form -->
-    <div class="form-container">
-        <h2>Send an Inquiry</h2>
-        <form name="google-sheet-form" id="inquiryForm">
-            <input type="text" name="Name" placeholder="Your Name" required>
-            <input type="text" name="Phone" placeholder="Your Phone Number" required>
-            <textarea name="Message" placeholder="What do you need?" rows="4" required></textarea>
-            <button type="submit" id="submitBtn">Send Inquiry</button>
-        </form>
-        <p id="formMsg" style="display:none; color: #10b981; text-align: center; margin-top: 15px; font-weight: bold;">Message Sent Successfully!</p>
-    </div>
+    <!-- Inquiry Form -->
+<div class="form-container">
+    <h2>Send an Inquiry</h2>
+    <form name="google-sheet-form" id="inquiryForm">
+        <!-- 'Name' ko 'name' kar diya -->
+        <input type="text" name="name" placeholder="Your Name" required>
+        
+        <!-- 'Phone' ko 'phone' kar diya -->
+        <input type="text" name="phone" placeholder="Your Phone Number" required>
+        
+        <!-- 'Message' ko change karke 'item' kar diya, kyunki script e.parameter.item dhoondh raha hai -->
+        <textarea name="item" placeholder="What do you need?" rows="4" required></textarea>
+        
+        <button type="submit" id="submitBtn">Send Inquiry</button>
+    </form>
+    <p id="formMsg" style="display:none; color: #10b981; text-align: center; margin-top: 15px; font-weight: bold;">Message Sent Successfully!</p>
+</div>
 
     <!-- JavaScript File Link - ?v=2 lagaya -->
     <script src="script.js?v=2"></script>
