@@ -1,4 +1,4 @@
-// --- LIVE SEARCH LOGIC ---
+// Live Search Logic
 function filterItems() {
     let input = document.getElementById('searchInput').value.toLowerCase();
     let cards = document.getElementsByClassName('card');
@@ -15,7 +15,7 @@ function filterItems() {
     }
 }
 
-// --- DARK MODE LOGIC ---
+// Dark Mode Logic
 function toggleTheme() {
     let body = document.body;
     let btn = document.querySelector('.theme-toggle');
@@ -36,13 +36,13 @@ if (localStorage.getItem('theme') === 'dark') {
     document.querySelector('.theme-toggle').innerText = '☀️ Light Mode';
 }
 
-// --- FETCH INVENTORY FROM GOOGLE SHEET (CSV) ---
+// --- FETCH INVENTORY FROM GOOGLE SHEET (PUBLISHED AS CSV) ---
 document.addEventListener('DOMContentLoaded', fetchInventory);
 
 function fetchInventory() {
     const itemGrid = document.getElementById('itemGrid');
     
-    // Google Sheet Publish to Web CSV URL
+    // 👇 YAHAN APNI GOOGLE SHEET KI 'PUBLISH TO WEB (CSV)' WALI LINK PASTE KARO 👇
     const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRz7tFf-W9EcRsC8UcLhqWQw8u6k4Y5FqWV8Il6WD2J9vf1Q2ITR2Zx2CXsmJrxIoFaJkOrDD1BLWrf/pub?output=csv'; 
 
     fetch(csvUrl) 
@@ -50,8 +50,10 @@ function fetchInventory() {
         .then(data => {
             itemGrid.innerHTML = ''; // Loading text hata do
             
+            // CSV ko rows mein todna
             const rows = data.trim().split('\n');
             
+            // Pehli row (Headings) ko chhod kar loop chalayenge (i = 1 se)
             for (let i = 1; i < rows.length; i++) {
                 const cols = rows[i].split(','); 
                 
@@ -59,8 +61,9 @@ function fetchInventory() {
                     let title = cols[0].trim();
                     let desc = cols[1].trim();
                     let price = cols[2].trim();
-                    let status = cols[3].trim().toUpperCase(); 
+                    let status = cols[3].trim().toUpperCase(); // TRUE ya FALSE aayega yahan
                     
+                    // Naya Checkbox Logic
                     let isChecked = (status === 'TRUE');
                     let statusText = isChecked ? 'In Stock' : 'Out of Stock';
                     let statusClass = isChecked ? 'in-stock' : 'out-stock';
@@ -84,7 +87,7 @@ function fetchInventory() {
 }
 
 // --- GOOGLE SHEET FORM SUBMISSION LOGIC ---
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxp9Ays9EV-AVffSjpgyBJCSD8ahr2GzB_tc1s_ucb3TJv4tRyy_3kbDn2j7U584cJ26w/exec'; 
+const scriptURL = 'https://script.google.com/macros/s/AKfycbysZo-s5oE2GHhnTTJYOTlttYKO6yvVE2bG7nYUMkCJyeTXypyJUFeJjQxMxL1ClL7H/exec'; 
 const form = document.forms['google-sheet-form'];
 const btn = document.getElementById('submitBtn');
 const msg = document.getElementById('formMsg');
