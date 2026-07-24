@@ -87,7 +87,7 @@ function fetchInventory() {
 }
 
 // --- GOOGLE SHEET FORM SUBMISSION LOGIC ---
-const scriptURL = 'https://script.google.com/macros/s/AKfycbysZo-s5oE2GHhnTTJYOTlttYKO6yvVE2bG7nYUMkCJyeTXypyJUFeJjQxMxL1ClL7H/exec'; 
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwO9o0-dVWH3Obuq__GoIO8_HdBP7avzDJaPoQY6QSL506dq8kIAN16-1B9lDk92C1X/exec'; 
 const form = document.forms['google-sheet-form'];
 const btn = document.getElementById('submitBtn');
 const msg = document.getElementById('formMsg');
