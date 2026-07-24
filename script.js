@@ -36,9 +36,58 @@ if (localStorage.getItem('theme') === 'dark') {
     document.querySelector('.theme-toggle').innerText = '☀️ Light Mode';
 }
 
+// --- FETCH INVENTORY FROM GOOGLE SHEET (PUBLISHED AS CSV) ---
+document.addEventListener('DOMContentLoaded', fetchInventory);
+
+function fetchInventory() {
+    const itemGrid = document.getElementById('itemGrid');
+    
+    // 👇 YAHAN APNI GOOGLE SHEET KI 'PUBLISH TO WEB (CSV)' WALI LINK PASTE KARO 👇
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLyL3cwroKyCRh2okOdH0gdvBW7DjhfxI8o0_tEgwfar3N9lf_g0ggzGCnJsB4WgWsuWq-C888GqTJ/pub?output=csv'; 
+
+    fetch(csvUrl) 
+        .then(response => response.text())
+        .then(data => {
+            itemGrid.innerHTML = ''; // Loading text hata do
+            
+            // CSV ko rows mein todna
+            const rows = data.trim().split('\n');
+            
+            // Pehli row (Headings) ko chhod kar loop chalayenge (i = 1 se)
+            for (let i = 1; i < rows.length; i++) {
+                const cols = rows[i].split(','); 
+                
+                if (cols.length >= 4) {
+                    let title = cols[0].trim();
+                    let desc = cols[1].trim();
+                    let price = cols[2].trim();
+                    let status = cols[3].trim().toUpperCase(); // TRUE ya FALSE aayega yahan
+                    
+                    // Naya Checkbox Logic
+                    let isChecked = (status === 'TRUE');
+                    let statusText = isChecked ? 'In Stock' : 'Out of Stock';
+                    let statusClass = isChecked ? 'in-stock' : 'out-stock';
+                    
+                    let cardHTML = `
+                        <div class="card">
+                            <h3>${title}</h3>
+                            <p>${desc}</p>
+                            <div class="price">${price}</div>
+                            <div class="status ${statusClass}">${statusText}</div>
+                        </div>
+                    `;
+                    itemGrid.innerHTML += cardHTML;
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching CSV:', error);
+            itemGrid.innerHTML = '<p style="color:red; text-align:center; width:100%;">Error loading items. Please check the CSV URL connection.</p>';
+        });
+}
+
 // --- GOOGLE SHEET FORM SUBMISSION LOGIC ---
-// Dost ko yahan apni Google Apps Script ki URL dalni hogi baad mein
-const scriptURL = 'https://script.google.com/macros/s/AKfycbwhWHdB7OMIZPJDxBJrW0a35Gk0DlfxpwvqpU9_Jkb8uRKz5ZHtT95huT7BEdG9JzADJg/exec'; 
+const scriptURL = 'https://script.google.com/macros/s/AKfycbysZo-s5oE2GHhnTTJYOTlttYKO6yvVE2bG7nYUMkCJyeTXypyJUFeJjQxMxL1ClL7H/exec'; 
 const form = document.forms['google-sheet-form'];
 const btn = document.getElementById('submitBtn');
 const msg = document.getElementById('formMsg');
@@ -54,7 +103,7 @@ form.addEventListener('submit', e => {
             form.reset();
             setTimeout(function(){
                 msg.style.display = "none";
-            }, 5000); // 5 second baad message gayab
+            }, 5000); 
         })
         .catch(error => {
             console.error('Error!', error.message);
