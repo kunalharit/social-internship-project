@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stationary Shop</title>
-    <!-- CSS File Link - ?v=2 lagaya taaki cache issue na ho -->
+  
     <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
-    <!-- Dark Mode Button -->
+
     <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
 
-    <!-- 1. Hero Banner -->
+  
     <div class="hero-banner">
         <div class="hero-badge">Est. 2026 • Top Quality Supplies</div>
         <h1>SANA BOOK PALACE</h1>
         <p>Everything you need to focus, stay disciplined, and succeed.</p>
     </div>
 
-    <!-- 2. Announcement Bar -->
+  
     <div class="announcement-bar">
         <div class="announcement-icon">🚀 Updates:</div>
         <div class="marquee-text">
@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <!-- 3. Category Pills -->
+
     <div class="category-container">
         <span class="category-pill" onclick="document.getElementById('searchInput').value='Books'; filterItems();">📚 Books</span>
         <span class="category-pill" onclick="document.getElementById('searchInput').value='Engineering Tools'; filterItems();">📐 Engineering Tools</span>
@@ -35,29 +35,27 @@
         <span class="category-pill" onclick="document.getElementById('searchInput').value=''; filterItems();">🔄 Show All</span>
     </div>
 
-    <!-- Search Bar -->
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search for items..." onkeyup="filterItems()">
     </div>
 
-    <!-- Inventory Grid -->
+  
     <div class="grid" id="itemGrid">
         <!-- Yeh loader data aane tak ghoomega/dikhega -->
         <h3 id="loader" style="text-align:center; width:100%; color:#007bff; padding: 40px;">⏳ Loading Inventory from Sheet...</h3>
     </div>
 
-    <!-- Inquiry Form -->
-    <!-- Inquiry Form -->
+   
 <div class="form-container">
     <h2>Send an Inquiry</h2>
     <form name="google-sheet-form" id="inquiryForm">
-        <!-- 'Name' ko 'name' kar diya -->
+   
         <input type="text" name="name" placeholder="Your Name" required>
         
-        <!-- 'Phone' ko 'phone' kar diya -->
+      
         <input type="text" name="phone" placeholder="Your Phone Number" required>
         
-        <!-- 'Message' ko change karke 'item' kar diya, kyunki script e.parameter.item dhoondh raha hai -->
+       
         <textarea name="item" placeholder="What do you need?" rows="4" required></textarea>
         
         <button type="submit" id="submitBtn">Send Inquiry</button>
@@ -75,12 +73,12 @@
 
         <div class="action-buttons">
           
-            <a href="https://wa.me/919876543210" target="_blank" class="action-btn whatsapp-btn">
+            <a href="https://wa.me/9058080985" target="_blank" class="action-btn whatsapp-btn">
                 💬 WhatsApp
             </a>
             
          
-            <a href="tel:+919876543210" class="action-btn call-btn">
+            <a href="tel:+919058080985" class="action-btn call-btn">
                 📞 Call Now
             </a>
             
